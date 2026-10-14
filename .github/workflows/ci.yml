@@ -1,0 +1,35 @@
+name: SDK checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Core protocol and real WebSocket tests
+        run: dotnet run --project Tests~/Pubb.Tests.csproj
+      - name: WebGL bridge and sample backend tests
+        run: node --test Tests~/*.test.mjs
+      - name: Compile WebGL C# transport branch
+        run: dotnet build Tests~/Pubb.Tests.csproj -p:DefineConstants=UNITY_WEBGL -o /tmp/pubb-webgl-compile
+      - name: Build reproducible UPM package
+        shell: bash
+        run: |
+          python3 tools~/pack.py
+          cp dist~/io.pubb.unity-0.1.0.tgz.sha256 /tmp/pubbsdk-first.sha256
+          python3 tools~/pack.py
+          cmp /tmp/pubbsdk-first.sha256 dist~/io.pubb.unity-0.1.0.tgz.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: io.pubb.unity-0.1.0
+          path: dist~/*

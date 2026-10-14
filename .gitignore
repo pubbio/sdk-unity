@@ -1,0 +1,6 @@
+Tests~/bin/
+Tests~/obj/
+.DS_Store
+dist~/
+__pycache__/
+*.pyc

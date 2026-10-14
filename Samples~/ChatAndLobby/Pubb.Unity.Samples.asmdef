@@ -1,0 +1,5 @@
+{
+  "name": "Pubb.Unity.Samples",
+  "references": ["Pubb.Unity", "Unity.Newtonsoft.Json"],
+  "autoReferenced": true
+}

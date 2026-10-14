@@ -1,0 +1,8 @@
+{
+  "name": "Pubb.Unity.Tests",
+  "references": ["Pubb.Unity", "Unity.Newtonsoft.Json"],
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "autoReferenced": false,
+  "defineConstraints": ["UNITY_INCLUDE_TESTS"]
+}

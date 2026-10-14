@@ -1,0 +1,29 @@
+{
+  "name": "io.pubb.unity",
+  "version": "0.1.0",
+  "displayName": "pubb Unity SDK",
+  "description": "Realtime events, chat, lobbies and presence for Unity.",
+  "unity": "2022.3",
+  "documentationUrl": "https://pubb.io/docs/sdk/unity",
+  "license": "MIT",
+  "author": {
+    "name": "pubb",
+    "url": "https://pubb.io"
+  },
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.2.1",
+    "com.unity.modules.unitywebrequest": "1.0.0",
+    "com.unity.modules.imgui": "1.0.0"
+  },
+  "samples": [
+    {
+      "displayName": "Chat and lobby",
+      "description": "Receive chat, presence, ready states and scores; send commands to your backend.",
+      "path": "Samples~/ChatAndLobby"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pubbio/sdk-unity.git"
+  }
+}

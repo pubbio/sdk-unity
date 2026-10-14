@@ -1,0 +1,6 @@
+{
+  "name": "Pubb.Unity",
+  "rootNamespace": "Pubb.Unity",
+  "references": ["Unity.Newtonsoft.Json"],
+  "autoReferenced": true
+}
